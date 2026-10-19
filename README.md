@@ -1,0 +1,76 @@
+# mousemap
+
+A small macOS background tool for a regular mouse:
+
+- **Smooth, trackpad-style scrolling** for the mouse wheel: slow notches stay
+  precise, fast spins build up speed, and flicks coast to a stop.
+- **Reverse the mouse wheel only.** macOS has one "natural scrolling" switch
+  for mouse and trackpad together; keep it on for the trackpad and flip just
+  the wheel.
+- **Remap the side buttons** (back / forward) and the wheel click to keyboard
+  shortcuts, media keys or shell commands.
+- **Per-app settings**, e.g. a slower scroll speed in Terminal.
+
+One Swift file, no dependencies. Nothing is written to the mouse; it all
+happens on the Mac through an event tap. Trackpads and Magic Mouse are left
+alone.
+
+## Install
+
+Needs macOS 12 or later (tested on macOS 27) and the Swift compiler
+(`xcode-select --install`).
+
+    git clone https://github.com/Anubhav-Rai/mousemap.git
+    cd mousemap
+    ./install.sh
+
+This builds it, installs it to `~/.local/bin/mousemap` (put that on your
+`PATH`), and starts it now and at every login. Then allow **mousemap** in
+System Settings > Privacy & Security > Device Control and Data Access (called
+"Accessibility" on older macOS). It starts working within a couple of seconds.
+
+install.sh signs the binary with a self-signed certificate it creates on first
+run (kept in `.signing/`, never committed), so the permission survives
+rebuilds. Delete `.signing/` and you'll have to allow it again.
+
+To remove: `./uninstall.sh` (keeps your config in `~/.config/mousemap`).
+
+## Use
+
+    mousemap show                               # current settings
+    mousemap set scroll_speed 1.2               # change a setting everywhere
+    mousemap set Terminal scroll_speed 0.25     # ...or for one app
+    mousemap unset Terminal scroll_speed        # back to the everywhere value
+    mousemap set forward ctrl+up                # Forward button opens Mission Control
+    mousemap status                             # running? config valid? recent log
+    mousemap apps                               # app names and bundle IDs
+    mousemap off / on                           # stop / start
+    mousemap edit                               # open the config file
+
+Changes apply immediately. Settings live in `~/.config/mousemap/config.json`,
+which also documents every option.
+
+## Settings
+
+| Setting | Default | |
+|---|---|---|
+| `smooth_scroll` | `true` | smooth scrolling for the mouse wheel |
+| `scroll_speed` | `1.0` | how far each notch pushes; 2.0 = twice as far |
+| `scroll_smoothness` | `1.0` | glide of slow scrolling; 0.5 = snappier, 2.0 = floatier |
+| `scroll_momentum` | `1.0` | coasting after fast scrolling; 0 = none |
+| `scroll_acceleration` | `1.0` | how much faster scrolling goes further; 0 = none |
+| `scroll_reverse` | `false` | flip the mouse wheel only |
+| `back`, `forward`, `middle` | normal | button actions, see below |
+
+Button actions: a shortcut like `cmd+c`, `ctrl+left`, `cmd+shift+]`, `f11`;
+a media key like `media:volume_up`, `media:play_pause`; a command like
+`shell:open -a Safari`; `none` to disable the button; `default` for its
+normal behaviour.
+
+Per-app settings (buttons and `scroll_*`) apply while that app is in front.
+
+Log: `~/Library/Logs/mousemap.log`
+
+## License
+
+MIT, see [LICENSE](LICENSE).
