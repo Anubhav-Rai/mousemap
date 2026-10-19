@@ -109,7 +109,6 @@ struct ScrollSettings {
     var speed = 1.0
     var smoothness = 1.0
     var momentum = 1.0
-    var acceleration = 1.0
     var reverse = false
 }
 
@@ -153,7 +152,6 @@ func parseScroll(_ dict: inout [String: Any], base: ScrollSettings, context: Str
         ("scroll_speed", \ScrollSettings.speed, false),
         ("scroll_smoothness", \ScrollSettings.smoothness, false),
         ("scroll_momentum", \ScrollSettings.momentum, true),
-        ("scroll_acceleration", \ScrollSettings.acceleration, true),
     ]
     for (key, path, zeroAllowed) in numbers {
         guard let value = dict.removeValue(forKey: key) else { continue }
@@ -231,12 +229,13 @@ let configHelp = #"""
 //   "none"                   do nothing
 //   "default"                normal behaviour (useful inside "apps")
 //
-// Smooth scrolling, trackpad-style (mouse wheel only; trackpads are left alone):
+// Smooth scrolling, trackpad-style (mouse wheel only; trackpads are left alone).
+// The page follows the wheel one to one and, after a fast spin, coasts like a
+// trackpad flick.
 //   "smooth_scroll": true / false
-//   "scroll_speed": 1.0        how far each notch pushes; 2.0 = twice as far
-//   "scroll_smoothness": 1.0   glide of slow scrolling; 0.5 = snappier, 2.0 = floatier
+//   "scroll_speed": 1.0        how far each notch scrolls; 2.0 = twice as far
+//   "scroll_smoothness": 1.0   glide of each notch; 0.5 = snappier, 2.0 = floatier
 //   "scroll_momentum": 1.0     coasting after fast scrolling; 0 = none, 2.0 = longer
-//   "scroll_acceleration": 1.0 how much faster scrolling goes further; 0 = none
 //   "scroll_reverse": false    flip the mouse wheel only. macOS has one "natural
 //                              scrolling" switch for mouse and trackpad; leave it
 //                              on for the trackpad and set this to true.
@@ -253,7 +252,6 @@ let defaultConfig = configHelp + #"""
   "scroll_speed": 1.0,
   "scroll_smoothness": 1.0,
   "scroll_momentum": 1.0,
-  "scroll_acceleration": 1.0,
   "scroll_reverse": false,
 
   // "back": "ctrl+left",      // previous desktop
@@ -261,7 +259,7 @@ let defaultConfig = configHelp + #"""
 
   "apps": {
     // "com.google.Chrome": { "back": "default", "forward": "default" },
-    // "com.apple.Terminal": { "scroll_speed": 0.5 },
+    // "com.apple.Preview": { "scroll_speed": 0.5 },
   },
 }
 
@@ -338,37 +336,106 @@ func perform(_ action: Action) {
 
 // MARK: - Smooth scrolling
 
-// Trackpad-style: every wheel notch adds speed, and a 120 Hz timer lets the
-// page coast to a stop under friction. Friction is strong at low speed, so
-// single notches stop crisply, and weak at high speed, so fast spins build up
-// speed and carry on like a flick.
-let notchPixels = 40.0                  // speed kick per notch, as distance (scroll_speed 1.0)
-let glideSeconds = 0.07                 // friction time constant when slow (scroll_smoothness 1.0)
-let coastSeconds = 0.4                  // ... and when fast (scroll_momentum 1.0)
-let fastSpeed = 3000.0                  // px/s at which friction is weakest
+// The wheel acts like a finger on a trackpad. Every notch turns into a stream
+// of small pixel scrolls, posted by a 120 Hz timer: the page follows the wheel
+// one to one (every notch is the same distance, however fast the wheel turns)
+// and, when the wheel stops, coasts on at the speed it had, slowing down along
+// the same curve as macOS's trackpad momentum.
+let notchDistance = 60.0                // px per notch (scroll_speed 1.0)
+let followSeconds = 0.1                 // time constant of the page catching up (scroll_smoothness 1.0)
+let momentumDrag = 47.7                 // macOS momentum: the cube root of the speed drops by
+                                        // momentumDrag/3 every second (scroll_momentum 1.0);
+                                        // measured from AppKit's _NSScrollingMomentumCalculator
+let notchWindow = 0.2                   // s: a longer pause between notches starts a new movement
+let minNotchGap = 0.008                 // s: closer notches (bunched-up reports) count as this far apart
 let maxSpeed = 15000.0                  // px/s
-let accelStart = 3.0                    // notches/s before notches start pushing harder
-let accelScale = 12.0                   // ... and how quickly the push grows above that
-let accelPower = 1.3
+let pixelsPerLine = 14.0                // a trackpad reports a whole line every ~14 px scrolled
+let fixedPerLine = 0.8                  // ... and 0.8 in the fractional line field (both measured)
 let scrollMarker: Int64 = 0x6D6D_6170   // tags the scroll events we post ourselves
 
+// How fast the wheel turns, from the last few notches.
+struct WheelSpeed {
+    var times: [Double] = []
+    var direction = 0.0
+
+    // Notches per second over the last two gaps, or nil until a movement has
+    // three notches (one gap alone is too easily thrown off by bunched-up reports).
+    mutating func notch(at time: Double, direction: Double) -> Double? {
+        if direction != self.direction || time - (times.last ?? -.infinity) > notchWindow { times = [] }
+        self.direction = direction
+        times = Array((times + [time]).suffix(3))
+        guard times.count == 3 else { return nil }
+        return 2 / max(time - times[0], 2 * minNotchGap)
+    }
+}
+
+// One axis of a glide.
+struct Glide {
+    var behind = 0.0                    // px the page still has to move to catch up with the wheel
+    var coast = 0.0                     // px/s the page carries on at if the wheel stops now
+    var coasted = 0.0                   // px coasted ahead of the notches so far
+    var carry = 0.0                     // sub-pixel remainder
+    var unreported = 0.0                // px not yet reported as a whole line
+
+    var settled: Bool { coast == 0 && abs(behind) < 1 }   // less than a pixel left
+
+    // speed: how fast the wheel is moving the page (px/s); nil if that isn't
+    // known yet, which leaves any coasting as it is.
+    mutating func notch(_ direction: Double, distance: Double, speed: Double?) {
+        if behind * direction < 0 || coast * direction < 0 { self = Glide() }   // turning back stops the old movement
+        if let speed {
+            // Coasting while the wheel kept turning was the page keeping up
+            // with it, so it covers this notch, or part of it.
+            let covered = min(abs(coasted), distance)
+            behind += direction * (distance - covered)
+            coasted -= direction * covered
+            coast = direction * speed
+        } else {
+            behind += direction * distance
+            coasted = 0
+        }
+    }
+
+    // Moves on by dt seconds. Whole pixels only; the fraction carries over.
+    mutating func advance(_ dt: Double, catchUp: Double, drag: Double) -> Int32 {
+        var distance = carry
+        if coast != 0 {
+            // The cube root of the speed falls linearly; integrate the speed.
+            let sign = coast < 0 ? -1.0 : 1.0
+            let from = cbrt(abs(coast)), to = max(0, from - drag * dt / 3)
+            let step = sign * 3 / (4 * drag) * (pow(from, 4) - pow(to, 4))
+            coast = sign * pow(to, 3)
+            coasted += step
+            distance += step
+        }
+        // While coasting the page already moves with the wheel; catching up
+        // more gently keeps a fast spin from starting with a surge.
+        let follow = behind * (1 - exp(-dt / (coast != 0 ? 2 * catchUp : catchUp)))
+        behind -= follow
+        distance += follow
+        let pixels = distance.rounded()
+        carry = distance - pixels
+        return Int32(pixels)
+    }
+
+    // Whole lines to report along with these pixels, the way a trackpad does.
+    mutating func lines(_ pixels: Int32) -> Int64 {
+        unreported += Double(pixels)
+        let lines = (unreported / pixelsPerLine).rounded(.towardZero)
+        unreported -= lines * pixelsPerLine
+        return Int64(lines)
+    }
+}
+
 var activeScroll = ScrollSettings()     // settings of the app being scrolled
-var lastNotch = (time: 0.0, direction: 0.0)
-var scrollVelocity = (y: 0.0, x: 0.0)   // px/s
-var scrollCarry = (y: 0.0, x: 0.0)      // sub-pixel remainder
+var wheel = WheelSpeed()
+var glide = (y: Glide(), x: Glide())
 var scrollTimer: DispatchSourceTimer?
 var lastScrollTick = 0.0
 
-func frictionSeconds(_ speed: Double) -> Double {
-    let slow = glideSeconds * activeScroll.smoothness
-    let fast = max(slow, coastSeconds * activeScroll.momentum)
-    return slow + (fast - slow) * min(1, speed / fastSpeed)
-}
-
 func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     activeScroll = settings
-    // One notch per event, direction only: the speed build-up above is the
-    // acceleration, so macOS's own wheel acceleration is ignored.
+    // One notch per event, direction only: macOS's own wheel acceleration is ignored.
     func notch(_ whole: CGEventField, _ fixed: CGEventField) -> Double {
         let delta = Double(event.getIntegerValueField(whole))
         let value = delta != 0 ? delta : event.getDoubleValueField(fixed)
@@ -377,22 +444,12 @@ func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     let y = notch(.scrollWheelEventDeltaAxis1, .scrollWheelEventFixedPtDeltaAxis1)
     let x = notch(.scrollWheelEventDeltaAxis2, .scrollWheelEventFixedPtDeltaAxis2)
 
-    // Notches arriving quickly in the same direction push harder.
-    let now = ProcessInfo.processInfo.systemUptime
-    let direction = y != 0 ? y : x * 2
-    let rate = direction == lastNotch.direction ? 1 / max(now - lastNotch.time, 0.005) : 0
-    lastNotch = (now, direction)
-    let boost = 1 + settings.acceleration * pow(max(0, rate - accelStart) / accelScale, accelPower)
-
-    let kick = notchPixels * settings.speed / (glideSeconds * settings.smoothness) * boost
-        * (settings.reverse ? -1 : 1)
-    func push(_ velocity: Double, _ direction: Double) -> Double {
-        guard direction != 0 else { return velocity }
-        let base = velocity * direction < 0 ? 0 : velocity   // changing direction stops the old movement
-        return max(-maxSpeed, min(maxSpeed, base + direction * kick))
-    }
-    scrollVelocity.y = push(scrollVelocity.y, y)
-    scrollVelocity.x = push(scrollVelocity.x, x)
+    let distance = notchDistance * settings.speed
+    let rate = wheel.notch(at: ProcessInfo.processInfo.systemUptime, direction: y != 0 ? y : x * 2)
+    let speed = rate.map { settings.momentum > 0 ? min(maxSpeed, $0 * distance) : 0 }
+    let sign = settings.reverse ? -1.0 : 1.0
+    if y != 0 { glide.y.notch(y * sign, distance: distance, speed: speed) }
+    if x != 0 { glide.x.notch(x * sign, distance: distance, speed: speed) }
 
     guard scrollTimer == nil else { return }
     lastScrollTick = ProcessInfo.processInfo.systemUptime - 1.0 / 120
@@ -423,30 +480,30 @@ func scrollTick() {
     let dt = now - lastScrollTick
     lastScrollTick = now
 
-    // Distance travelled this tick while friction slows the axis down. Whole
-    // pixels only; the leftover fraction carries over to the next tick.
-    func advance(_ velocity: inout Double, _ carry: inout Double) -> Int32 {
-        let friction = frictionSeconds(abs(velocity))
-        let decay = exp(-dt / friction)
-        let distance = velocity * friction * (1 - decay) + carry
-        velocity *= decay
-        let pixels = distance.rounded()
-        carry = distance - pixels
-        return Int32(pixels)
+    let catchUp = followSeconds * activeScroll.smoothness
+    let drag = momentumDrag / max(activeScroll.momentum, 0.01)
+    let dy = glide.y.advance(dt, catchUp: catchUp, drag: drag)
+    let dx = glide.x.advance(dt, catchUp: catchUp, drag: drag)
+    if dy != 0 || dx != 0, let event = CGEvent(scrollWheelEvent2Source: nil, units: .pixel, wheelCount: 2, wheel1: dy, wheel2: dx, wheel3: 0) {
+        // Line-based apps (Terminal) read the line fields, not the pixels, and
+        // CGEvent puts a whole line on every event however small, which made
+        // them scroll many times too far. Report lines like a trackpad instead.
+        // Setting the line delta recalculates the other two, so it goes first.
+        let axes: [(Int32, Int64, CGEventField, CGEventField, CGEventField)] = [
+            (dy, glide.y.lines(dy), .scrollWheelEventDeltaAxis1, .scrollWheelEventFixedPtDeltaAxis1, .scrollWheelEventPointDeltaAxis1),
+            (dx, glide.x.lines(dx), .scrollWheelEventDeltaAxis2, .scrollWheelEventFixedPtDeltaAxis2, .scrollWheelEventPointDeltaAxis2),
+        ]
+        for (pixels, lines, whole, fixed, points) in axes {
+            event.setIntegerValueField(whole, value: lines)
+            event.setDoubleValueField(fixed, value: Double(lines) * fixedPerLine)
+            event.setIntegerValueField(points, value: Int64(pixels))
+        }
+        event.setIntegerValueField(.scrollWheelEventIsContinuous, value: 1)
+        event.setIntegerValueField(.eventSourceUserData, value: scrollMarker)
+        event.post(tap: .cghidEventTap)
     }
-    let dy = advance(&scrollVelocity.y, &scrollCarry.y)
-    let dx = advance(&scrollVelocity.x, &scrollCarry.x)
-    if dy != 0 || dx != 0 {
-        let event = CGEvent(scrollWheelEvent2Source: nil, units: .pixel, wheelCount: 2, wheel1: dy, wheel2: dx, wheel3: 0)
-        event?.setIntegerValueField(.scrollWheelEventIsContinuous, value: 1)
-        event?.setIntegerValueField(.eventSourceUserData, value: scrollMarker)
-        event?.post(tap: .cghidEventTap)
-    }
-    // Stop once less than a pixel of travel is left on both axes.
-    func settled(_ velocity: Double) -> Bool { abs(velocity) * frictionSeconds(abs(velocity)) < 1 }
-    if settled(scrollVelocity.y) && settled(scrollVelocity.x) {
-        scrollVelocity = (0, 0)
-        scrollCarry = (0, 0)
+    if glide.y.settled && glide.x.settled {
+        glide = (Glide(), Glide())
         scrollTimer?.cancel()
         scrollTimer = nil
     }
@@ -751,7 +808,7 @@ usage: mousemap <command>
   set [app] <setting> <value>
            change a setting, for every app or just one, e.g.
              mousemap set scroll_speed 1.2
-             mousemap set Terminal scroll_speed 0.25
+             mousemap set Preview scroll_speed 0.5
              mousemap set forward ctrl+up
   unset [app] <setting>
            remove a setting, so it falls back to the default

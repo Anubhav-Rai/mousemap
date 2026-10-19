@@ -2,14 +2,17 @@
 
 A small macOS background tool for a regular mouse:
 
-- **Smooth, trackpad-style scrolling** for the mouse wheel: slow notches stay
-  precise, fast spins build up speed, and flicks coast to a stop.
+- **Smooth, trackpad-style scrolling** for the mouse wheel: the page follows
+  the wheel one to one and, after a fast spin, coasts to a stop along the same
+  curve as macOS's trackpad momentum. Apps that scroll by lines (like
+  Terminal) are told about lines the way a trackpad reports them, so one speed
+  feels right everywhere.
 - **Reverse the mouse wheel only.** macOS has one "natural scrolling" switch
   for mouse and trackpad together; keep it on for the trackpad and flip just
   the wheel.
 - **Remap the side buttons** (back / forward) and the wheel click to keyboard
   shortcuts, media keys or shell commands.
-- **Per-app settings**, e.g. a slower scroll speed in Terminal.
+- **Per-app settings**, e.g. a different scroll speed or button action in one app.
 
 One Swift file, no dependencies. Nothing is written to the mouse; it all
 happens on the Mac through an event tap. Trackpads and Magic Mouse are left
@@ -39,8 +42,8 @@ To remove: `./uninstall.sh` (keeps your config in `~/.config/mousemap`).
 
     mousemap show                               # current settings
     mousemap set scroll_speed 1.2               # change a setting everywhere
-    mousemap set Terminal scroll_speed 0.25     # ...or for one app
-    mousemap unset Terminal scroll_speed        # back to the everywhere value
+    mousemap set Preview scroll_speed 0.5       # ...or for one app
+    mousemap unset Preview scroll_speed         # back to the everywhere value
     mousemap set forward ctrl+up                # Forward button opens Mission Control
     mousemap status                             # running? config valid? recent log
     mousemap apps                               # app names and bundle IDs
@@ -55,10 +58,9 @@ which also documents every option.
 | Setting | Default | |
 |---|---|---|
 | `smooth_scroll` | `true` | smooth scrolling for the mouse wheel |
-| `scroll_speed` | `1.0` | how far each notch pushes; 2.0 = twice as far |
-| `scroll_smoothness` | `1.0` | glide of slow scrolling; 0.5 = snappier, 2.0 = floatier |
-| `scroll_momentum` | `1.0` | coasting after fast scrolling; 0 = none |
-| `scroll_acceleration` | `1.0` | how much faster scrolling goes further; 0 = none |
+| `scroll_speed` | `1.0` | how far each notch scrolls; 2.0 = twice as far |
+| `scroll_smoothness` | `1.0` | glide of each notch; 0.5 = snappier, 2.0 = floatier |
+| `scroll_momentum` | `1.0` | coasting after fast scrolling; 0 = none, 2.0 = longer |
 | `scroll_reverse` | `false` | flip the mouse wheel only |
 | `back`, `forward`, `middle` | normal | button actions, see below |
 
