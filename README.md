@@ -180,7 +180,9 @@ The curve was sampled from AppKit's own momentum calculator
 straight line, by 15.9 every second. So a glide from speed $v_0$ (px/s) lasts
 $3\,v_0^{1/3}/47.7$ seconds and covers
 
-$$D = \frac{3}{4 \cdot 47.7}\, v_0^{4/3} \approx 0.0157\, v_0^{4/3}\ \text{px}$$
+```math
+D = \frac{3}{4 \cdot 47.7}\, v_0^{4/3} \approx 0.0157\, v_0^{4/3}\ \text{px}
+```
 
 For example, a flick at 1,500 px/s glides 270 px in 0.72 s, and one at
 6,000 px/s glides 1,714 px in 1.14 s.
@@ -461,7 +463,9 @@ plus a 120 Hz timer that runs only while something is moving.
    times of the current movement. A new direction, or a pause longer than
    `notchWindow`, starts over. With three notches:
 
-   $$\text{rate} = \frac{2}{\max(t_n - t_{n-2},\ 0.016\ \text{s})}\ \text{notches/s}$$
+   ```math
+   \text{rate} = \frac{2}{\max(t_n - t_{n-2},\ 0.016\ \text{s})}\ \text{notches/s}
+   ```
 
    Two gaps, not one, because Bluetooth delivers notches unevenly (gaps of
    0, 7, 8 and 15 ms in a row are normal); one gap alone swings wildly. The wheel's
@@ -490,12 +494,19 @@ For each axis, `Glide.advance(dt)`:
 1. **Glide.** If `coast` isn't 0, the speed decays along Apple's curve and
    the distance travelled this tick is the exact integral:
 
-   $$v^{1/3}_{\text{to}} = \max\!\left(0,\ v^{1/3}_{\text{from}} - \frac{k\,\Delta t}{3}\right),\qquad
-   \Delta x_{\text{glide}} = \frac{3}{4k}\left(v_{\text{from}}^{4/3} - v_{\text{to}}^{4/3}\right),\qquad k = \frac{47.7}{\text{momentum}}$$
+   ```math
+   v^{1/3}_{\text{to}} = \max\left(0,\ v^{1/3}_{\text{from}} - \frac{k\,\Delta t}{3}\right),\qquad k = \frac{47.7}{\text{momentum}}
+   ```
+
+   ```math
+   \Delta x_{\text{glide}} = \frac{3}{4k}\left(v_{\text{from}}^{4/3} - v_{\text{to}}^{4/3}\right)
+   ```
 
 2. **Catch up.** The page closes a fixed share of the distance it is behind:
 
-   $$\Delta x_{\text{follow}} = \text{behind} \cdot \left(1 - e^{-\Delta t/\tau}\right),\qquad \tau = 0.1\ \text{s} \times \text{smoothness}$$
+   ```math
+   \Delta x_{\text{follow}} = \text{behind} \cdot \left(1 - e^{-\Delta t/\tau}\right),\qquad \tau = 0.1\ \text{s} \times \text{smoothness}
+   ```
 
    While gliding, $\tau$ is doubled: the page already moves with the wheel,
    and catching up gently stops a fast spin from starting with a surge.
