@@ -6,7 +6,9 @@ A small macOS background tool for a regular mouse:
   the wheel one to one and, after a fast spin, coasts to a stop along the same
   curve as macOS's trackpad momentum. Apps that scroll by lines (like
   Terminal) are told about lines the way a trackpad reports them, so one speed
-  feels right everywhere.
+  feels right everywhere. In iPhone Mirroring, which animates every scroll
+  event on the phone, the same movement goes out in fewer, bigger steps (15 a
+  second) so the phone follows the wheel instead of jumping when it stops.
 - **Reverse the mouse wheel only.** macOS has one "natural scrolling" switch
   for mouse and trackpad together; keep it on for the trackpad and flip just
   the wheel.

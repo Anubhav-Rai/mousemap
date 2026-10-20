@@ -353,6 +353,15 @@ let pixelsPerLine = 14.0                // a trackpad reports a whole line every
 let fixedPerLine = 0.8                  // ... and 0.8 in the fractional line field (both measured)
 let scrollMarker: Int64 = 0x6D6D_6170   // tags the scroll events we post ourselves
 
+// iPhone Mirroring hands scroll events to the phone as mouse-wheel input, and
+// the phone animates each one. At 120 a second every event restarted that
+// animation, so nothing moved until the wheel stopped, and then it all jumped.
+// Fewer, bigger events let each animation run (15 a second was the smoothest
+// measured), and the phone moves 0.62 pt per px sent, hence the 1.6x.
+let mirroringApp = "com.apple.ScreenContinuity"
+let mirroringTicks = 8                  // timer ticks per event to iPhone Mirroring (15 a second)
+let mirroringScale = 1.6
+
 // How fast the wheel turns, from the last few notches.
 struct WheelSpeed {
     var times: [Double] = []
@@ -432,6 +441,18 @@ var wheel = WheelSpeed()
 var glide = (y: Glide(), x: Glide())
 var scrollTimer: DispatchSourceTimer?
 var lastScrollTick = 0.0
+var toMirroring = false                 // the glide is scrolling iPhone Mirroring
+var mirroringHeld = (y: 0.0, x: 0.0)    // px held back for its next event
+var mirroringTick = 0
+
+// The app whose window is under a point (event coordinates), the one a click there would hit.
+func appUnder(_ point: CGPoint) -> String? {
+    let flipped = NSPoint(x: point.x, y: (NSScreen.screens.first?.frame.height ?? 0) - point.y)
+    let window = NSWindow.windowNumber(at: flipped, belowWindowWithWindowNumber: 0)
+    guard let info = (CGWindowListCopyWindowInfo(.optionIncludingWindow, CGWindowID(window)) as? [[String: Any]])?.first,
+          let pid = info[kCGWindowOwnerPID as String] as? pid_t else { return nil }
+    return NSRunningApplication(processIdentifier: pid)?.bundleIdentifier
+}
 
 func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     activeScroll = settings
@@ -452,6 +473,8 @@ func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     if x != 0 { glide.x.notch(x * sign, distance: distance, speed: speed) }
 
     guard scrollTimer == nil else { return }
+    toMirroring = appUnder(event.location) == mirroringApp
+    mirroringTick = 0
     lastScrollTick = ProcessInfo.processInfo.systemUptime - 1.0 / 120
     let timer = DispatchSource.makeTimerSource(queue: .main)
     timer.schedule(deadline: .now(), repeating: 1.0 / 120, leeway: .milliseconds(1))
@@ -484,29 +507,45 @@ func scrollTick() {
     let drag = momentumDrag / max(activeScroll.momentum, 0.01)
     let dy = glide.y.advance(dt, catchUp: catchUp, drag: drag)
     let dx = glide.x.advance(dt, catchUp: catchUp, drag: drag)
-    if dy != 0 || dx != 0, let event = CGEvent(scrollWheelEvent2Source: nil, units: .pixel, wheelCount: 2, wheel1: dy, wheel2: dx, wheel3: 0) {
-        // Line-based apps (Terminal) read the line fields, not the pixels, and
-        // CGEvent puts a whole line on every event however small, which made
-        // them scroll many times too far. Report lines like a trackpad instead.
-        // Setting the line delta recalculates the other two, so it goes first.
-        let axes: [(Int32, Int64, CGEventField, CGEventField, CGEventField)] = [
-            (dy, glide.y.lines(dy), .scrollWheelEventDeltaAxis1, .scrollWheelEventFixedPtDeltaAxis1, .scrollWheelEventPointDeltaAxis1),
-            (dx, glide.x.lines(dx), .scrollWheelEventDeltaAxis2, .scrollWheelEventFixedPtDeltaAxis2, .scrollWheelEventPointDeltaAxis2),
-        ]
-        for (pixels, lines, whole, fixed, points) in axes {
-            event.setIntegerValueField(whole, value: lines)
-            event.setDoubleValueField(fixed, value: Double(lines) * fixedPerLine)
-            event.setIntegerValueField(points, value: Int64(pixels))
+    let settled = glide.y.settled && glide.x.settled
+    if toMirroring {
+        mirroringHeld.y += Double(dy) * mirroringScale
+        mirroringHeld.x += Double(dx) * mirroringScale
+        if mirroringTick % mirroringTicks == 0 || settled {
+            let y = mirroringHeld.y.rounded(), x = mirroringHeld.x.rounded()
+            mirroringHeld = (mirroringHeld.y - y, mirroringHeld.x - x)
+            postScroll(Int32(y), Int32(x))
         }
-        event.setIntegerValueField(.scrollWheelEventIsContinuous, value: 1)
-        event.setIntegerValueField(.eventSourceUserData, value: scrollMarker)
-        event.post(tap: .cghidEventTap)
+        mirroringTick += 1
+    } else {
+        postScroll(dy, dx)
     }
-    if glide.y.settled && glide.x.settled {
+    if settled {
         glide = (Glide(), Glide())
+        mirroringHeld = (0, 0)
         scrollTimer?.cancel()
         scrollTimer = nil
     }
+}
+
+func postScroll(_ dy: Int32, _ dx: Int32) {
+    guard dy != 0 || dx != 0, let event = CGEvent(scrollWheelEvent2Source: nil, units: .pixel, wheelCount: 2, wheel1: dy, wheel2: dx, wheel3: 0) else { return }
+    // Line-based apps (Terminal) read the line fields, not the pixels, and
+    // CGEvent puts a whole line on every event however small, which made
+    // them scroll many times too far. Report lines like a trackpad instead.
+    // Setting the line delta recalculates the other two, so it goes first.
+    let axes: [(Int32, Int64, CGEventField, CGEventField, CGEventField)] = [
+        (dy, glide.y.lines(dy), .scrollWheelEventDeltaAxis1, .scrollWheelEventFixedPtDeltaAxis1, .scrollWheelEventPointDeltaAxis1),
+        (dx, glide.x.lines(dx), .scrollWheelEventDeltaAxis2, .scrollWheelEventFixedPtDeltaAxis2, .scrollWheelEventPointDeltaAxis2),
+    ]
+    for (pixels, lines, whole, fixed, points) in axes {
+        event.setIntegerValueField(whole, value: lines)
+        event.setDoubleValueField(fixed, value: Double(lines) * fixedPerLine)
+        event.setIntegerValueField(points, value: Int64(pixels))
+    }
+    event.setIntegerValueField(.scrollWheelEventIsContinuous, value: 1)
+    event.setIntegerValueField(.eventSourceUserData, value: scrollMarker)
+    event.post(tap: .cghidEventTap)
 }
 
 // MARK: - Agent
