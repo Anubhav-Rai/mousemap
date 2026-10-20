@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="360" viewBox="0 0 780 360" font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'>
+<rect x="0.5" y="0.5" width="779.0" height="359.0" rx="10" fill="#ffffff" stroke="#d8dde3" stroke-width="1" opacity="1"/>
+<text x="24.0" y="34.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="600">Moving the pointer to another window right after scrolling</text>
+<text x="24.0" y="56.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Two Terminal windows: scroll A, then move the pointer onto B straight away.</text>
+<text x="24.0" y="74.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Lines window B scrolled although nobody scrolled it.</text>
+<line x1="92.0" y1="290.0" x2="732.0" y2="290.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="233.3" x2="732.0" y2="233.3" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="176.7" x2="732.0" y2="176.7" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="120.0" x2="732.0" y2="120.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="290.0" x2="732.0" y2="290.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="120.0" x2="92.0" y2="290.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="88.0" y1="290.0" x2="92.0" y2="290.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="294.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="88.0" y1="233.3" x2="92.0" y2="233.3" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="237.3" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">8</text>
+<line x1="88.0" y1="176.7" x2="92.0" y2="176.7" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="180.7" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">16</text>
+<line x1="88.0" y1="120.0" x2="92.0" y2="120.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="124.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">24</text>
+<text x="44.0" y="205.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 44.0 205.0)">lines B scrolled</text>
+<rect x="188.0" y="275.8" width="56.0" height="14.2" rx="3" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="216.0" y="269.8" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">2</text>
+<rect x="260.0" y="290.0" width="56.0" height="1.5" rx="3" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="288.0" y="284.0" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">0</text>
+<text x="252.0" y="310.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="normal">3 slow notches on A</text>
+<rect x="508.0" y="141.2" width="56.0" height="148.8" rx="3" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="536.0" y="135.2" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">21</text>
+<rect x="580.0" y="290.0" width="56.0" height="1.5" rx="3" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="608.0" y="284.0" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">0</text>
+<text x="572.0" y="310.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="normal">8 fast notches on A</text>
+<rect x="115.0" y="324.0" width="12.0" height="12.0" rx="2" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="140.0" y="334.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">before: the rest of the glide landed on B</text>
+<rect x="455.0" y="324.0" width="12.0" height="12.0" rx="2" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="480.0" y="334.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">now: the glide stops when the pointer leaves A</text>
+</svg>

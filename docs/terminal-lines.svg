@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="380" viewBox="0 0 780 380" font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'>
+<rect x="0.5" y="0.5" width="779.0" height="379.0" rx="10" fill="#ffffff" stroke="#d8dde3" stroke-width="1" opacity="1"/>
+<text x="24.0" y="34.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="600">Terminal scrolls by lines, not pixels</text>
+<text x="24.0" y="56.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Real wheel notches through mousemap into a Terminal window. A synthetic scroll event says</text>
+<text x="24.0" y="74.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">"1 line" however small it is; mousemap reports lines the way the trackpad does instead.</text>
+<line x1="92.0" y1="310.0" x2="732.0" y2="310.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="262.5" x2="732.0" y2="262.5" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="215.0" x2="732.0" y2="215.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="167.5" x2="732.0" y2="167.5" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="120.0" x2="732.0" y2="120.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="310.0" x2="732.0" y2="310.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="92.0" y1="120.0" x2="92.0" y2="310.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="88.0" y1="310.0" x2="92.0" y2="310.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="314.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="88.0" y1="262.5" x2="92.0" y2="262.5" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="266.5" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">40</text>
+<line x1="88.0" y1="215.0" x2="92.0" y2="215.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="219.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">80</text>
+<line x1="88.0" y1="167.5" x2="92.0" y2="167.5" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="171.5" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">120</text>
+<line x1="88.0" y1="120.0" x2="92.0" y2="120.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="85.0" y="124.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">160</text>
+<text x="44.0" y="215.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 44.0 215.0)">lines Terminal scrolls</text>
+<rect x="156.0" y="131.9" width="52.0" height="178.1" rx="3" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="182.0" y="125.9" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">150</text>
+<rect x="222.0" y="285.1" width="52.0" height="24.9" rx="3" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="248.0" y="279.1" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">21</text>
+<rect x="288.0" y="284.6" width="52.0" height="25.4" rx="3" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<text x="314.0" y="278.6" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="600">21</text>
+<text x="252.0" y="330.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="normal">5 slow notches (299 px)</text>
+<rect x="476.0" y="153.2" width="52.0" height="156.8" rx="3" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="502.0" y="147.2" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="600">132</text>
+<rect x="542.0" y="215.0" width="52.0" height="95.0" rx="3" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="568.0" y="209.0" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="600">80</text>
+<rect x="608.0" y="214.2" width="52.0" height="95.8" rx="3" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<text x="634.0" y="208.2" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="600">81</text>
+<text x="572.0" y="330.0" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="normal">15 fast notches (1,130 px)</text>
+<rect x="115.0" y="346.0" width="12.0" height="12.0" rx="2" fill="#dc2626" stroke="none" stroke-width="1" opacity="1"/>
+<text x="140.0" y="356.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">one line per event (what CGEvent fills in)</text>
+<rect x="425.0" y="346.0" width="12.0" height="12.0" rx="2" fill="#2563eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="450.0" y="356.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">mousemap now</text>
+<rect x="575.0" y="346.0" width="12.0" height="12.0" rx="2" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<text x="600.0" y="356.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">trackpad: a line per ~14 px</text>
+</svg>

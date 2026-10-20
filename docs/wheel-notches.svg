@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="410" viewBox="0 0 780 410" font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'>
+<rect x="0.5" y="0.5" width="779.0" height="409.0" rx="10" fill="#ffffff" stroke="#d8dde3" stroke-width="1" opacity="1"/>
+<text x="24.0" y="34.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="600">The mouse wheel, as macOS sends it (without mousemap)</text>
+<text x="24.0" y="56.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Recorded from the Logitech M650: two quick flicks. One event per notch, nothing in between,</text>
+<text x="24.0" y="74.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">nothing after the last one, and macOS scales each notch by how fast the wheel is turning.</text>
+<line x1="84.0" y1="334.0" x2="744.0" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="281.5" x2="744.0" y2="281.5" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="229.0" x2="744.0" y2="229.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="176.5" x2="744.0" y2="176.5" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="124.0" x2="744.0" y2="124.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="200.5" y1="124.0" x2="200.5" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="329.9" y1="124.0" x2="329.9" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="459.3" y1="124.0" x2="459.3" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="588.7" y1="124.0" x2="588.7" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="718.1" y1="124.0" x2="718.1" y2="334.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="334.0" x2="744.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="124.0" x2="84.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="200.5" y1="334.0" x2="200.5" y2="338.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="200.5" y="351.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0</text>
+<line x1="329.9" y1="334.0" x2="329.9" y2="338.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="329.9" y="351.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.1</text>
+<line x1="459.3" y1="334.0" x2="459.3" y2="338.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="459.3" y="351.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.2</text>
+<line x1="588.7" y1="334.0" x2="588.7" y2="338.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="588.7" y="351.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.3</text>
+<line x1="718.1" y1="334.0" x2="718.1" y2="338.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="718.1" y="351.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.4</text>
+<line x1="80.0" y1="334.0" x2="84.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="80.0" y1="281.5" x2="84.0" y2="281.5" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="285.5" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">8</text>
+<line x1="80.0" y1="229.0" x2="84.0" y2="229.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="233.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">16</text>
+<line x1="80.0" y1="176.5" x2="84.0" y2="176.5" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="180.5" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">24</text>
+<line x1="80.0" y1="124.0" x2="84.0" y2="124.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="128.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">32</text>
+<text x="414.0" y="370.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">seconds</text>
+<text x="36.0" y="229.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 36.0 229.0)">lines per notch (macOS)</text>
+<rect x="323.4" y="124.0" width="252.4" height="210.0" rx="0" fill="#9ca3af" stroke="none" stroke-width="1" opacity="0.1"/>
+<text x="449.6" y="297.9" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="600">no events between flicks,</text>
+<text x="449.6" y="312.9" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="600">no momentum after them</text>
+<rect x="198.0" y="333.3" width="5.0" height="0.7" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="209.4" y="314.8" width="5.0" height="19.2" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="238.1" y="210.5" width="5.0" height="123.5" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="247.7" y="191.0" width="5.0" height="143.0" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="260.5" y="158.5" width="5.0" height="175.5" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="276.4" y="153.7" width="5.0" height="180.3" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="286.7" y="149.3" width="5.0" height="184.7" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="315.2" y="146.6" width="5.0" height="187.4" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="578.1" y="333.3" width="5.0" height="0.7" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="587.1" y="314.4" width="5.0" height="19.6" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="597.6" y="236.5" width="5.0" height="97.5" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="617.1" y="205.7" width="5.0" height="128.3" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="649.9" y="192.8" width="5.0" height="141.2" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="655.7" y="178.9" width="5.0" height="155.1" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="664.8" y="166.1" width="5.0" height="167.9" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="675.1" y="156.5" width="5.0" height="177.5" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="695.3" y="147.4" width="5.0" height="186.6" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="703.7" y="147.4" width="5.0" height="186.6" rx="0" fill="#d97706" stroke="none" stroke-width="1" opacity="1"/>
+<circle cx="200.5" cy="333.3" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="211.9" cy="314.8" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="240.6" cy="210.5" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="250.2" cy="191.0" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="263.0" cy="158.5" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="278.9" cy="153.7" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="289.2" cy="149.3" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="317.7" cy="146.6" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="580.6" cy="333.3" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="589.6" cy="314.4" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="600.1" cy="236.5" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="619.6" cy="205.7" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="652.4" cy="192.8" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="658.2" cy="178.9" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="667.3" cy="166.1" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="677.6" cy="156.5" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="697.8" cy="147.4" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<circle cx="706.2" cy="147.4" r="3" fill="#d97706" stroke="none" stroke-width="1"/>
+<text x="150.5" y="270.1" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="normal">1st notch:</text>
+<text x="150.5" y="284.1" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="normal">0.1 line</text>
+<line x1="158.0" y1="289.1" x2="200.5" y2="325.1" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+<line x1="200.5" y1="325.1" x2="193.7" y2="323.3" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+<line x1="200.5" y1="325.1" x2="197.6" y2="318.7" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+<text x="417.7" y="180.6" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="normal">8th notch, 90 ms later:</text>
+<text x="417.7" y="194.6" font-size="11.5" fill="#1f2937" text-anchor="middle" font-weight="normal">28.6 lines (still one notch)</text>
+<line x1="402.7" y1="167.6" x2="317.7" y2="151.6" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+<line x1="317.7" y1="151.6" x2="324.5" y2="149.7" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+<line x1="317.7" y1="151.6" x2="323.3" y2="155.7" stroke="#1f2937" stroke-width="1" stroke-linecap="butt"/>
+</svg>

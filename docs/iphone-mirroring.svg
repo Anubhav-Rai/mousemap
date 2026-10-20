@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="430" viewBox="0 0 780 430" font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'>
+<rect x="0.5" y="0.5" width="779.0" height="429.0" rx="10" fill="#ffffff" stroke="#d8dde3" stroke-width="1" opacity="1"/>
+<text x="24.0" y="34.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="600">iPhone Mirroring: the same 5 notches, sent two ways</text>
+<text x="24.0" y="56.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Filmed from the iPhone Mirroring window (X feed). The phone animates every wheel event it gets;</text>
+<text x="24.0" y="74.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">at ~100 events a second each one restarts the animation, so the feed barely moves.</text>
+<text x="84.0" y="118.0" font-size="13.5" fill="#1f2937" text-anchor="start" font-weight="600">~100 events a second (before)</text>
+<line x1="84.0" y1="330.0" x2="384.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="280.0" x2="384.0" y2="280.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="230.0" x2="384.0" y2="230.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="180.0" x2="384.0" y2="180.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="130.0" x2="384.0" y2="130.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="130.0" x2="84.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="159.0" y1="130.0" x2="159.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="234.0" y1="130.0" x2="234.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="309.0" y1="130.0" x2="309.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="384.0" y1="130.0" x2="384.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="330.0" x2="384.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="130.0" x2="84.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="330.0" x2="84.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="84.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0</text>
+<line x1="159.0" y1="330.0" x2="159.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="159.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.5</text>
+<line x1="234.0" y1="330.0" x2="234.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="234.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">1</text>
+<line x1="309.0" y1="330.0" x2="309.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="309.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">1.5</text>
+<line x1="384.0" y1="330.0" x2="384.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="384.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">2</text>
+<line x1="80.0" y1="330.0" x2="84.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="334.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="80.0" y1="280.0" x2="84.0" y2="280.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="284.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">80</text>
+<line x1="80.0" y1="230.0" x2="84.0" y2="230.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="234.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">160</text>
+<line x1="80.0" y1="180.0" x2="84.0" y2="180.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="184.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">240</text>
+<line x1="80.0" y1="130.0" x2="84.0" y2="130.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="134.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">320</text>
+<text x="234.0" y="366.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">seconds</text>
+<text x="36.0" y="230.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 36.0 230.0)">moved (points on the phone)</text>
+<path d="M84.0,330.0 L84.0,330.0 L84.0,328.1 L86.2,328.1 L86.2,326.1 L86.5,326.1 L86.5,324.6 L88.3,324.6 L88.3,323.0 L89.0,323.0 L89.0,321.9 L90.9,321.9 L90.9,320.7 L91.5,320.7 L91.5,319.5 L93.4,319.5 L93.4,318.4 L94.0,318.4 L94.0,317.6 L96.0,317.6 L96.0,316.8 L96.5,316.8 L96.5,316.1 L98.5,316.1 L98.5,315.3 L99.0,315.3 L99.0,314.5 L100.8,314.5 L100.8,313.7 L101.5,313.7 L101.5,313.3 L103.2,313.3 L103.2,312.9 L104.0,312.9 L104.0,312.2 L105.8,312.2 L105.8,311.8 L106.5,311.8 L106.5,311.4 L108.3,311.4 L108.3,311.0 L109.0,311.0 L109.0,310.6 L111.0,310.6 L111.0,310.2 L112.7,310.2 L112.7,309.9 L114.0,309.9 L114.0,309.5 L116.5,309.5 L116.5,309.1 L119.0,309.1 L119.0,308.7 L121.4,308.7 L121.4,306.8 L122.7,306.8 L122.7,304.8 L124.0,304.8 L124.0,303.3 L125.2,303.3 L125.2,301.7 L126.5,301.7 L126.5,300.2 L127.7,300.2 L127.7,298.6 L129.0,298.6 L129.0,297.5 L130.2,297.5 L130.2,296.3 L131.5,296.3 L131.5,295.5 L132.7,295.5 L132.7,294.4 L134.0,294.4 L134.0,293.6 L135.2,293.6 L135.2,292.8 L136.5,292.8 L136.5,292.0 L137.7,292.0 L137.7,291.2 L139.0,291.2 L139.0,290.9 L140.9,290.9 L140.9,290.1 L141.5,290.1 L141.5,289.7 L142.7,289.7 L142.7,288.9 L144.0,288.9 L144.0,288.5 L145.2,288.5 L145.2,288.1 L146.5,288.1 L146.5,287.8 L147.7,287.8 L147.7,287.4 L150.2,287.4 L150.2,287.0 L151.5,287.0 L151.5,286.6 L152.7,286.6 L152.7,286.2 L155.2,286.2 L155.2,285.8 L157.7,285.8 L157.7,285.4 L160.2,285.4 L160.2,283.5 L161.5,283.5 L161.5,281.6 L162.7,281.6 L162.7,280.0 L164.0,280.0 L164.0,278.1 L165.2,278.1 L165.2,276.9 L166.5,276.9 L166.5,275.4 L167.7,275.4 L167.7,274.2 L169.0,274.2 L169.0,273.0 L170.2,273.0 L170.2,272.3 L171.5,272.3 L171.5,271.1 L172.7,271.1 L172.7,270.3 L174.0,270.3 L174.0,269.6 L175.3,269.6 L175.3,268.8 L176.6,268.8 L176.6,268.0 L177.8,268.0 L177.8,267.6 L179.0,267.6 L179.0,266.8 L180.3,266.8 L180.3,266.4 L181.5,266.4 L181.5,265.7 L182.7,265.7 L182.7,265.3 L184.0,265.3 L184.0,264.9 L185.2,264.9 L185.2,264.5 L186.5,264.5 L186.5,264.1 L189.0,264.1 L189.0,263.7 L190.3,263.7 L190.3,263.4 L192.8,263.4 L192.8,263.0 L194.0,263.0 L194.0,262.6 L196.4,262.6 L196.4,262.2 L197.8,262.2 L197.8,260.2 L199.0,260.2 L199.0,258.3 L200.1,258.3 L200.1,256.8 L201.6,256.8 L201.6,254.8 L202.8,254.8 L202.8,253.7 L203.8,253.7 L203.8,252.5 L205.3,252.5 L205.3,250.9 L206.4,250.9 L206.4,249.8 L207.8,249.8 L207.8,249.0 L208.9,249.0 L208.9,247.8 L210.3,247.8 L210.3,247.1 L211.3,247.1 L211.3,246.3 L212.8,246.3 L212.8,245.5 L213.8,245.5 L213.8,244.7 L215.3,244.7 L215.3,244.4 L216.5,244.4 L216.5,243.6 L217.7,243.6 L217.7,243.2 L218.8,243.2 L218.8,242.8 L220.3,242.8 L220.3,242.0 L221.5,242.0 L221.5,241.6 L222.8,241.6 L222.8,241.3 L224.0,241.3 L224.0,240.9 L226.5,240.9 L226.5,240.5 L227.5,240.5 L227.5,240.1 L229.1,240.1 L229.1,239.7 L231.3,239.7 L231.3,239.3 L233.9,239.3 L233.9,238.9 L236.4,238.9 L236.4,237.0 L237.7,237.0 L237.7,235.1 L239.0,235.1 L239.0,233.1 L240.1,233.1 L240.1,232.0 L241.5,232.0 L241.5,230.4 L242.6,230.4 L242.6,229.2 L244.0,229.2 L244.0,227.7 L245.3,227.7 L245.3,226.5 L246.3,226.5 L246.3,225.8 L247.7,225.8 L247.7,224.6 L248.9,224.6 L248.9,223.8 L250.2,223.8 L250.2,223.0 L251.3,223.0 L251.3,222.3 L252.8,222.3 L252.8,221.5 L254.0,221.5 L254.0,221.1 L255.2,221.1 L255.2,220.3 L256.5,220.3 L256.5,219.9 L257.7,219.9 L257.7,219.2 L259.0,219.2 L259.0,218.8 L260.1,218.8 L260.1,218.4 L261.3,218.4 L261.3,218.0 L262.5,218.0 L262.5,217.6 L264.1,217.6 L264.1,217.2 L266.6,217.2 L266.6,216.8 L267.8,216.8 L267.8,216.5 L270.3,216.5 L270.3,216.1 L272.8,216.1 L272.8,215.7 L276.4,215.7 L276.4,215.3 L280.1,215.3 L280.1,214.9 L285.2,214.9 L285.2,214.5 L292.8,214.5 L292.8,214.1 L384.0,214.1 L384.0,214.1" fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" opacity="1" stroke-dasharray="4 3"/>
+<path d="M85.2,330.0 L87.7,330.0 L90.2,330.0 L92.7,330.0 L95.2,330.0 L97.7,330.0 L100.2,330.0 L102.7,330.0 L105.2,330.0 L107.7,330.0 L110.2,330.0 L112.7,330.0 L115.2,330.0 L117.7,330.0 L120.2,330.0 L122.7,330.0 L125.2,330.0 L127.7,330.0 L130.2,330.0 L132.7,330.0 L135.2,330.0 L137.7,330.0 L140.2,330.0 L142.7,330.0 L145.2,330.0 L147.7,330.0 L150.2,330.0 L152.7,330.0 L155.2,330.0 L157.7,330.0 L160.2,330.0 L162.8,330.0 L165.3,320.6 L167.8,320.6 L170.2,312.1 L172.8,312.1 L177.8,312.1 L180.3,312.1 L182.8,312.1 L187.8,312.1 L190.3,312.1 L192.8,312.1 L195.3,312.1 L197.8,312.1 L200.3,312.1 L202.8,312.1 L205.3,312.1 L207.8,312.1 L210.3,312.1 L212.8,312.1 L215.3,312.1 L217.8,312.1 L220.3,312.1 L222.8,312.1 L225.3,312.1 L227.8,312.1 L230.3,312.1 L232.8,312.1 L235.3,312.1 L237.8,312.1 L240.3,312.1 L242.8,312.1 L245.3,312.0 L247.8,312.0 L250.3,312.0 L252.8,312.0 L255.3,312.0 L257.8,312.0 L260.3,312.0 L262.8,312.0 L265.3,312.0 L267.8,312.0 L270.3,312.0 L272.8,312.0 L275.3,312.0 L277.8,311.9 L280.4,311.9 L282.9,311.9 L285.3,311.9 L287.9,311.9 L290.4,311.6 L292.9,311.6 L295.4,311.5 L297.9,311.5 L300.4,311.3 L302.9,310.5 L305.4,310.5 L307.9,310.3 L310.4,309.5 L312.9,308.8 L315.4,308.5 L317.9,308.5 L320.4,308.5 L322.9,308.5 L325.4,308.5 L327.9,308.5 L330.4,308.5 L332.9,308.5 L335.4,308.5 L337.9,308.5 L340.4,308.5 L342.9,308.5 L345.4,308.5 L347.9,308.5 L350.4,308.5 L352.9,308.5 L355.4,308.5 L357.9,308.5 L360.4,308.5 L362.9,308.5 L365.4,308.5 L367.9,308.5 L370.4,308.5 L372.9,308.5 L375.4,308.5 L377.9,308.5 L380.4,308.5 L382.9,308.5" fill="none" stroke="#dc2626" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
+<text x="376.5" y="296.5" font-size="11.5" fill="#dc2626" text-anchor="end" font-weight="normal">phone: 34 pt</text>
+<text x="444.0" y="118.0" font-size="13.5" fill="#1f2937" text-anchor="start" font-weight="600">15 events a second, 1.6x (now)</text>
+<line x1="444.0" y1="330.0" x2="744.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="280.0" x2="744.0" y2="280.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="230.0" x2="744.0" y2="230.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="180.0" x2="744.0" y2="180.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="130.0" x2="744.0" y2="130.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="130.0" x2="444.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="519.0" y1="130.0" x2="519.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="594.0" y1="130.0" x2="594.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="669.0" y1="130.0" x2="669.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="744.0" y1="130.0" x2="744.0" y2="330.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="330.0" x2="744.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="130.0" x2="444.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="444.0" y1="330.0" x2="444.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="444.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0</text>
+<line x1="519.0" y1="330.0" x2="519.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="519.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.5</text>
+<line x1="594.0" y1="330.0" x2="594.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="594.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">1</text>
+<line x1="669.0" y1="330.0" x2="669.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="669.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">1.5</text>
+<line x1="744.0" y1="330.0" x2="744.0" y2="334.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="744.0" y="347.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">2</text>
+<line x1="440.0" y1="330.0" x2="444.0" y2="330.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="437.0" y="334.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="440.0" y1="280.0" x2="444.0" y2="280.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="437.0" y="284.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">80</text>
+<line x1="440.0" y1="230.0" x2="444.0" y2="230.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="437.0" y="234.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">160</text>
+<line x1="440.0" y1="180.0" x2="444.0" y2="180.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="437.0" y="184.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">240</text>
+<line x1="440.0" y1="130.0" x2="444.0" y2="130.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="437.0" y="134.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">320</text>
+<text x="594.0" y="366.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">seconds</text>
+<path d="M444.0,330.0 L444.0,330.0 L444.0,310.2 L453.6,310.2 L453.6,301.7 L463.6,301.7 L463.6,297.4 L473.6,297.4 L473.6,290.1 L483.6,290.1 L483.6,273.4 L493.5,273.4 L493.5,266.1 L503.5,266.1 L503.5,260.6 L513.6,260.6 L513.6,247.5 L523.6,247.5 L523.6,233.9 L533.6,233.9 L533.6,226.5 L543.6,226.5 L543.6,222.7 L554.0,222.7 L554.0,208.3 L564.3,208.3 L564.3,194.0 L573.6,194.0 L573.6,187.8 L584.0,187.8 L584.0,184.7 L593.6,184.7 L593.6,166.9 L603.6,166.9 L603.6,156.4 L613.6,156.4 L613.6,151.0 L623.6,151.0 L623.6,147.9 L633.5,147.9 L633.5,146.7 L643.5,146.7 L643.5,145.6 L744.0,145.6 L744.0,145.6" fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" opacity="1" stroke-dasharray="4 3"/>
+<path d="M445.4,330.0 L447.9,330.0 L450.4,330.0 L455.4,330.0 L460.4,327.2 L462.9,320.2 L465.4,313.2 L467.9,313.2 L470.4,311.5 L472.9,307.5 L475.4,303.4 L480.4,302.4 L483.0,298.3 L487.9,298.3 L490.5,297.1 L493.0,294.1 L495.5,291.3 L500.5,288.7 L503.0,282.4 L505.5,276.0 L508.0,276.0 L510.5,274.6 L513.0,270.9 L515.5,267.4 L520.5,266.4 L523.0,263.9 L525.5,261.5 L530.5,259.4 L533.0,254.3 L535.5,249.4 L540.5,247.0 L543.0,241.4 L545.5,235.8 L550.5,234.4 L553.0,231.0 L555.5,227.5 L560.5,226.7 L563.0,224.9 L565.5,222.9 L568.0,222.9 L570.5,220.7 L573.0,215.4 L575.5,210.1 L578.0,210.1 L580.5,207.6 L583.0,201.8 L585.5,195.8 L590.5,194.5 L593.0,188.4 L598.0,188.4 L600.5,187.8 L603.0,186.2 L605.5,184.6 L610.6,181.9 L613.0,175.4 L615.6,168.8 L620.6,166.9 L623.1,162.2 L625.6,157.5 L628.1,157.5 L630.6,156.5 L633.1,153.8 L635.6,151.2 L638.1,151.2 L640.6,150.6 L643.1,149.1 L645.6,147.6 L648.1,147.6 L650.6,147.3 L653.1,146.7 L655.6,146.0 L660.6,145.7 L663.1,145.4 L665.6,144.8 L668.1,144.5 L670.6,144.5 L673.1,144.5 L680.6,144.5 L685.6,144.5 L688.1,144.5 L693.1,144.5 L698.1,144.5 L703.1,144.5 L708.1,144.5 L710.6,144.5 L713.1,144.5 L718.1,144.5 L723.1,144.5 L728.1,144.5 L733.2,144.5 L738.2,144.5" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
+<text x="736.5" y="130.5" font-size="11.5" fill="#2563eb" text-anchor="end" font-weight="normal">phone: 297 pt</text>
+<line x1="100.0" y1="400.0" x2="122.0" y2="400.0" stroke="#9ca3af" stroke-width="2" stroke-linecap="butt" stroke-dasharray="5 4"/>
+<text x="130.0" y="404.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">what the wheel asked for</text>
+<line x1="330.0" y1="400.0" x2="352.0" y2="400.0" stroke="#1f2937" stroke-width="2.5" stroke-linecap="butt"/>
+<text x="360.0" y="404.0" font-size="12" fill="#1f2937" text-anchor="start" font-weight="normal">what the phone showed</text>
+</svg>

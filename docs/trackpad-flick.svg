@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="540" viewBox="0 0 780 540" font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'>
+<rect x="0.5" y="0.5" width="779.0" height="539.0" rx="10" fill="#ffffff" stroke="#d8dde3" stroke-width="1" opacity="1"/>
+<text x="24.0" y="34.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="600">A trackpad flick, as macOS sends it</text>
+<text x="24.0" y="56.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">Recorded from the real trackpad. Every bar is one scroll event; macOS keeps sending events</text>
+<text x="24.0" y="74.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="normal">after the fingers lift (momentum), slowing down along its own curve, until a new touch.</text>
+<line x1="84.0" y1="314.0" x2="744.0" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="250.7" x2="744.0" y2="250.7" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="187.3" x2="744.0" y2="187.3" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="124.0" x2="744.0" y2="124.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="124.0" x2="84.0" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="175.7" y1="124.0" x2="175.7" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="267.3" y1="124.0" x2="267.3" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="359.0" y1="124.0" x2="359.0" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="450.7" y1="124.0" x2="450.7" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="542.3" y1="124.0" x2="542.3" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="634.0" y1="124.0" x2="634.0" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="725.7" y1="124.0" x2="725.7" y2="314.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="314.0" x2="744.0" y2="314.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="124.0" x2="84.0" y2="314.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="314.0" x2="84.0" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="84.0" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0</text>
+<line x1="175.7" y1="314.0" x2="175.7" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="175.7" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.1</text>
+<line x1="267.3" y1="314.0" x2="267.3" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="267.3" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.2</text>
+<line x1="359.0" y1="314.0" x2="359.0" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="359.0" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.3</text>
+<line x1="450.7" y1="314.0" x2="450.7" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="450.7" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.4</text>
+<line x1="542.3" y1="314.0" x2="542.3" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="542.3" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.5</text>
+<line x1="634.0" y1="314.0" x2="634.0" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="634.0" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.6</text>
+<line x1="725.7" y1="314.0" x2="725.7" y2="318.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="725.7" y="331.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.7</text>
+<line x1="80.0" y1="314.0" x2="84.0" y2="314.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="318.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="80.0" y1="250.7" x2="84.0" y2="250.7" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="254.7" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">20</text>
+<line x1="80.0" y1="187.3" x2="84.0" y2="187.3" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="191.3" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">40</text>
+<line x1="80.0" y1="124.0" x2="84.0" y2="124.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="128.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">60</text>
+<text x="36.0" y="219.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 36.0 219.0)">px per event</text>
+<rect x="84.0" y="124.0" width="152.8" height="190.0" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="0.08"/>
+<text x="160.4" y="142.0" font-size="11.5" fill="#16a34a" text-anchor="middle" font-weight="600">fingers on the trackpad</text>
+<rect x="236.8" y="124.0" width="347.0" height="190.0" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="0.07"/>
+<text x="410.3" y="142.0" font-size="11.5" fill="#7c3aed" text-anchor="middle" font-weight="600">momentum: fingers off, macOS keeps going</text>
+<rect x="81.0" y="310.8" width="6.0" height="3.2" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="81.0" y="310.8" width="6.0" height="3.2" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="96.1" y="301.3" width="6.0" height="12.7" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="111.9" y="291.8" width="6.0" height="22.2" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="126.7" y="282.3" width="6.0" height="31.7" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="142.1" y="266.5" width="6.0" height="47.5" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="157.5" y="260.2" width="6.0" height="53.8" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="172.6" y="257.0" width="6.0" height="57.0" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="188.1" y="260.2" width="6.0" height="53.8" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="203.2" y="257.0" width="6.0" height="57.0" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="218.4" y="250.7" width="6.0" height="63.3" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="233.8" y="247.5" width="6.0" height="66.5" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="233.8" y="314.0" width="6.0" height="0.0" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="662.0" y="314.0" width="6.0" height="0.0" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="707.8" y="310.8" width="6.0" height="3.2" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="707.9" y="310.8" width="6.0" height="3.2" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="723.0" y="279.2" width="6.0" height="34.8" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="738.2" y="266.5" width="6.0" height="47.5" rx="0" fill="#16a34a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="234.7" y="219.0" width="6.0" height="95.0" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="250.0" y="206.3" width="6.0" height="107.7" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="265.7" y="203.2" width="6.0" height="110.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="280.6" y="203.2" width="6.0" height="110.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="295.1" y="203.2" width="6.0" height="110.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="310.4" y="209.5" width="6.0" height="104.5" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="325.8" y="193.7" width="6.0" height="120.3" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="341.9" y="196.8" width="6.0" height="117.2" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="357.1" y="206.3" width="6.0" height="107.7" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="372.3" y="215.8" width="6.0" height="98.2" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="387.2" y="225.3" width="6.0" height="88.7" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="403.2" y="231.7" width="6.0" height="82.3" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="418.2" y="241.2" width="6.0" height="72.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="432.9" y="247.5" width="6.0" height="66.5" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="448.6" y="253.8" width="6.0" height="60.2" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="464.0" y="260.2" width="6.0" height="53.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="478.8" y="263.3" width="6.0" height="50.7" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="494.5" y="266.5" width="6.0" height="47.5" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="510.1" y="272.8" width="6.0" height="41.2" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="525.0" y="276.0" width="6.0" height="38.0" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="540.4" y="279.2" width="6.0" height="34.8" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="555.7" y="282.3" width="6.0" height="31.7" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="571.1" y="285.5" width="6.0" height="28.5" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="580.9" y="314.0" width="6.0" height="0.0" rx="0" fill="#7c3aed" stroke="none" stroke-width="1" opacity="1"/>
+<text x="92.0" y="247.2" font-size="11.5" fill="#16a34a" text-anchor="start" font-weight="normal">phase: began</text>
+<line x1="90.8" y1="252.2" x2="84.0" y2="304.2" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="304.2" x2="81.8" y2="297.6" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="304.2" x2="87.8" y2="298.4" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<text x="192.8" y="149.5" font-size="11.5" fill="#16a34a" text-anchor="middle" font-weight="normal">phase: ended</text>
+<text x="192.8" y="163.5" font-size="11.5" fill="#16a34a" text-anchor="middle" font-weight="normal">(fingers lift)</text>
+<line x1="199.4" y1="168.5" x2="236.8" y2="242.5" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="236.8" y1="242.5" x2="231.2" y2="238.2" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="236.8" y1="242.5" x2="236.7" y2="235.5" stroke="#16a34a" stroke-width="1" stroke-linecap="butt"/>
+<text x="583.9" y="242.4" font-size="11.5" fill="#7c3aed" text-anchor="middle" font-weight="normal">momentum</text>
+<text x="583.9" y="256.4" font-size="11.5" fill="#7c3aed" text-anchor="middle" font-weight="normal">phase ends</text>
+<line x1="583.9" y1="261.4" x2="583.9" y2="307.4" stroke="#7c3aed" stroke-width="1" stroke-linecap="butt"/>
+<line x1="583.9" y1="307.4" x2="580.8" y2="301.1" stroke="#7c3aed" stroke-width="1" stroke-linecap="butt"/>
+<line x1="583.9" y1="307.4" x2="586.9" y2="301.1" stroke="#7c3aed" stroke-width="1" stroke-linecap="butt"/>
+<text x="659.0" y="224.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal">next touch:</text>
+<text x="659.0" y="238.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal">may begin</text>
+<line x1="659.9" y1="243.0" x2="665.0" y2="309.0" stroke="#6b7280" stroke-width="1" stroke-linecap="butt"/>
+<line x1="665.0" y1="309.0" x2="661.5" y2="303.0" stroke="#6b7280" stroke-width="1" stroke-linecap="butt"/>
+<line x1="665.0" y1="309.0" x2="667.5" y2="302.5" stroke="#6b7280" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="482.0" x2="744.0" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="427.0" x2="744.0" y2="427.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="372.0" x2="744.0" y2="372.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="372.0" x2="84.0" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="175.7" y1="372.0" x2="175.7" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="267.3" y1="372.0" x2="267.3" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="359.0" y1="372.0" x2="359.0" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="450.7" y1="372.0" x2="450.7" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="542.3" y1="372.0" x2="542.3" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="634.0" y1="372.0" x2="634.0" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="725.7" y1="372.0" x2="725.7" y2="482.0" stroke="#eceff3" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="482.0" x2="744.0" y2="482.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="372.0" x2="84.0" y2="482.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<line x1="84.0" y1="482.0" x2="84.0" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="84.0" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0</text>
+<line x1="175.7" y1="482.0" x2="175.7" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="175.7" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.1</text>
+<line x1="267.3" y1="482.0" x2="267.3" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="267.3" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.2</text>
+<line x1="359.0" y1="482.0" x2="359.0" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="359.0" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.3</text>
+<line x1="450.7" y1="482.0" x2="450.7" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="450.7" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.4</text>
+<line x1="542.3" y1="482.0" x2="542.3" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="542.3" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.5</text>
+<line x1="634.0" y1="482.0" x2="634.0" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="634.0" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.6</text>
+<line x1="725.7" y1="482.0" x2="725.7" y2="486.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="725.7" y="499.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal">0.7</text>
+<line x1="80.0" y1="482.0" x2="84.0" y2="482.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="486.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">0</text>
+<line x1="80.0" y1="427.0" x2="84.0" y2="427.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="431.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">350</text>
+<line x1="80.0" y1="372.0" x2="84.0" y2="372.0" stroke="#9ca3af" stroke-width="1" stroke-linecap="butt"/>
+<text x="77.0" y="376.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">700</text>
+<text x="414.0" y="518.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">seconds since the fingers started moving</text>
+<text x="36.0" y="427.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" transform="rotate(-90 36.0 427.0)">page moved (px)</text>
+<path d="M84.0,482.0 L84.0,481.8 L84.0,481.7 L99.1,481.1 L114.9,480.0 L129.7,478.4 L145.1,476.0 L160.5,473.4 L175.6,470.5 L191.1,467.9 L206.2,465.0 L221.4,461.9 L236.8,458.6 L236.8,458.6" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
+<path d="M236.8,458.6 L237.7,453.9 L253.0,448.5 L268.7,443.0 L283.6,437.5 L298.1,432.0 L313.4,426.8 L328.8,420.9 L344.9,415.1 L360.1,409.7 L375.3,404.8 L390.2,400.4 L406.2,396.4 L421.2,392.7 L435.9,389.4 L451.6,386.5 L467.0,383.8 L481.8,381.3 L497.5,378.9 L513.1,376.9 L528.0,375.0 L543.4,373.3 L558.7,371.7 L574.1,370.3 L583.9,370.3" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" opacity="1"/>
+<text x="226.8" y="442.6" font-size="11.5" fill="#16a34a" text-anchor="end" font-weight="normal">149 px under the fingers</text>
+<text x="583.9" y="400.3" font-size="11.5" fill="#7c3aed" text-anchor="middle" font-weight="normal">+562 px of momentum</text>
+</svg>
