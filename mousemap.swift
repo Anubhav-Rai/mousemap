@@ -444,18 +444,44 @@ var lastScrollTick = 0.0
 var toMirroring = false                 // the glide is scrolling iPhone Mirroring
 var mirroringHeld = (y: 0.0, x: 0.0)    // px held back for its next event
 var mirroringTick = 0
+var scrollWindow = 0                    // the window the glide is scrolling
+var pointer = CGPoint.zero              // where the pointer was last seen during the glide
 
-// The app whose window is under a point (event coordinates), the one a click there would hit.
-func appUnder(_ point: CGPoint) -> String? {
+// The window under a point (event coordinates), the one a click there would hit.
+func windowUnder(_ point: CGPoint) -> Int {
     let flipped = NSPoint(x: point.x, y: (NSScreen.screens.first?.frame.height ?? 0) - point.y)
-    let window = NSWindow.windowNumber(at: flipped, belowWindowWithWindowNumber: 0)
+    return NSWindow.windowNumber(at: flipped, belowWindowWithWindowNumber: 0)
+}
+
+func app(owning window: Int) -> String? {
     guard let info = (CGWindowListCopyWindowInfo(.optionIncludingWindow, CGWindowID(window)) as? [[String: Any]])?.first,
           let pid = info[kCGWindowOwnerPID as String] as? pid_t else { return nil }
     return NSRunningApplication(processIdentifier: pid)?.bundleIdentifier
 }
 
+// Scroll events go to the window under the pointer, so once it's over another
+// window the rest of a glide would scroll that one. A trackpad scroll stays
+// with its window, but ours can't be sent there without changing how apps
+// treat them (or moving the pointer back), so the glide stops instead.
+func pointerLeftScrollWindow(_ location: CGPoint) -> Bool {
+    guard location != pointer else { return false }
+    pointer = location
+    return windowUnder(location) != scrollWindow
+}
+
+func stopScroll() {
+    glide = (Glide(), Glide())
+    mirroringHeld = (0, 0)
+    scrollTimer?.cancel()
+    scrollTimer = nil
+}
+
 func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     activeScroll = settings
+    if scrollTimer != nil && pointerLeftScrollWindow(event.location) {
+        stopScroll()
+        wheel = WheelSpeed()
+    }
     // One notch per event, direction only: macOS's own wheel acceleration is ignored.
     func notch(_ whole: CGEventField, _ fixed: CGEventField) -> Double {
         let delta = Double(event.getIntegerValueField(whole))
@@ -473,7 +499,9 @@ func addScroll(_ event: CGEvent, _ settings: ScrollSettings) {
     if x != 0 { glide.x.notch(x * sign, distance: distance, speed: speed) }
 
     guard scrollTimer == nil else { return }
-    toMirroring = appUnder(event.location) == mirroringApp
+    scrollWindow = windowUnder(event.location)
+    pointer = event.location
+    toMirroring = app(owning: scrollWindow) == mirroringApp
     mirroringTick = 0
     lastScrollTick = ProcessInfo.processInfo.systemUptime - 1.0 / 120
     let timer = DispatchSource.makeTimerSource(queue: .main)
@@ -499,6 +527,11 @@ func reverseScroll(_ event: CGEvent) {
 }
 
 func scrollTick() {
+    if let location = CGEvent(source: nil)?.location, pointerLeftScrollWindow(location) {
+        stopScroll()
+        wheel = WheelSpeed()
+        return
+    }
     let now = ProcessInfo.processInfo.systemUptime
     let dt = now - lastScrollTick
     lastScrollTick = now
@@ -520,12 +553,7 @@ func scrollTick() {
     } else {
         postScroll(dy, dx)
     }
-    if settled {
-        glide = (Glide(), Glide())
-        mirroringHeld = (0, 0)
-        scrollTimer?.cancel()
-        scrollTimer = nil
-    }
+    if settled { stopScroll() }
 }
 
 func postScroll(_ dy: Int32, _ dx: Int32) {
