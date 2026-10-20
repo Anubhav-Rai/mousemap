@@ -456,64 +456,77 @@ plus a 120 Hz timer that runs only while something is moving.
 
 #### When a notch arrives (`addScroll`)
 
-1. **Direction only.** The notch is read as +1 or −1 from its line delta (or
-   the fractional delta if the line delta is 0). macOS's own scaling (0.1 to
-   28 lines) is ignored on purpose.
-2. **How fast is the wheel turning?** `WheelSpeed` keeps the last three notch
-   times of the current movement. A new direction, or a pause longer than
-   `notchWindow`, starts over. With three notches:
+**1. Direction only.** The notch is read as +1 or −1 from its line delta (or
+the fractional delta if the line delta is 0). macOS's own scaling (0.1 to 28
+lines) is ignored on purpose.
 
-   ```math
-   \text{rate} = \frac{2}{\max(t_n - t_{n-2},\ 0.016\ \text{s})}\ \text{notches/s}
-   ```
+**2. How fast is the wheel turning?** `WheelSpeed` keeps the last three notch
+times of the current movement. A new direction, or a pause longer than
+`notchWindow`, starts over. With three notches:
 
-   Two gaps, not one, because Bluetooth delivers notches unevenly (gaps of
-   0, 7, 8 and 15 ms in a row are normal); one gap alone swings wildly. The wheel's
-   speed is then $v = \min(15000,\ \text{rate} \times 60\ \text{px} \times \text{speed})$
-   (or 0 when `scroll_momentum` is 0). With fewer than three notches the speed
-   is unknown.
-3. **Move the "finger".** `Glide.notch`:
-   - **Turning back** (the notch is against the current movement) stops the old
-     movement: the glide is reset, like a finger landing on a trackpad stops
-     its momentum.
-   - **Speed unknown** (first notches of a movement, or slow turning): the page
-     has 60 px more to go: `behind += 60`.
-   - **Speed known** (the wheel is turning fast): the page should glide at the
-     wheel's speed: `coast = v`. Any distance it already glided ahead of the
-     wheel *counts toward this notch* ("covered"), so a fast spin doesn't add
-     the glide on top of every notch:
-     `covered = min(coasted, 60)`, `behind += 60 − covered`, `coasted −= covered`.
-4. **Start the timer** if it isn't running, and remember the window under the
-   pointer ([4.7](#47-staying-with-one-window)) and whether it belongs to
-   iPhone Mirroring ([4.6](#46-iphone-mirroring)).
+```math
+\text{rate} = \frac{2}{\max(t_n - t_{n-2},\ 0.016\ \text{s})}\ \text{notches/s}
+```
+
+Two gaps, not one, because Bluetooth delivers notches unevenly (gaps of 0, 7,
+8 and 15 ms in a row are normal); one gap alone swings wildly. The wheel's
+speed is then
+
+```math
+v = \min(15000,\ \text{rate} \times 60\ \text{px} \times \text{speed})
+```
+
+or 0 when `scroll_momentum` is 0. With fewer than three notches the speed is
+unknown.
+
+**3. Move the "finger".** `Glide.notch`:
+
+- **Turning back** (the notch is against the current movement) stops the old
+  movement: the glide is reset, like a finger landing on a trackpad stops its
+  momentum.
+- **Speed unknown** (first notches of a movement, or slow turning): the page
+  has 60 px more to go: `behind += 60`.
+- **Speed known** (the wheel is turning fast): the page should glide at the
+  wheel's speed: `coast = v`. Any distance it already glided ahead of the
+  wheel *counts toward this notch* ("covered"), so a fast spin doesn't add the
+  glide on top of every notch: `covered = min(coasted, 60)`,
+  `behind += 60 − covered`, `coasted −= covered`.
+
+**4. Start the timer** if it isn't running, and remember the window under the
+pointer ([4.7](#47-staying-with-one-window)) and whether it belongs to iPhone
+Mirroring ([4.6](#46-iphone-mirroring)).
 
 #### Every tick (`scrollTick`, 120 times a second)
 
-For each axis, `Glide.advance(dt)`:
+For each axis, `Glide.advance(dt)` does four things.
 
-1. **Glide.** If `coast` isn't 0, the speed decays along Apple's curve and
-   the distance travelled this tick is the exact integral:
+**1. Glide.** If `coast` isn't 0, the speed decays along Apple's curve and the
+distance travelled this tick is the exact integral, with
+$k = 47.7 / \text{momentum}$:
 
-   ```math
-   v^{1/3}_{\text{to}} = \max\left(0,\ v^{1/3}_{\text{from}} - \frac{k\,\Delta t}{3}\right),\qquad k = \frac{47.7}{\text{momentum}}
-   ```
+```math
+v^{1/3}_{\text{to}} = \max\left(0,\ v^{1/3}_{\text{from}} - \frac{k\,\Delta t}{3}\right)
+```
 
-   ```math
-   \Delta x_{\text{glide}} = \frac{3}{4k}\left(v_{\text{from}}^{4/3} - v_{\text{to}}^{4/3}\right)
-   ```
+```math
+\Delta x_{\text{glide}} = \frac{3}{4k}\left(v_{\text{from}}^{4/3} - v_{\text{to}}^{4/3}\right)
+```
 
-2. **Catch up.** The page closes a fixed share of the distance it is behind:
+**2. Catch up.** The page closes a fixed share of the distance it is behind,
+with $\tau = 0.1\ \text{s} \times \text{smoothness}$:
 
-   ```math
-   \Delta x_{\text{follow}} = \text{behind} \cdot \left(1 - e^{-\Delta t/\tau}\right),\qquad \tau = 0.1\ \text{s} \times \text{smoothness}
-   ```
+```math
+\Delta x_{\text{follow}} = \text{behind} \cdot \left(1 - e^{-\Delta t/\tau}\right)
+```
 
-   While gliding, $\tau$ is doubled: the page already moves with the wheel,
-   and catching up gently stops a fast spin from starting with a surge.
-3. **Whole pixels.** The sum is rounded to whole pixels; the fraction carries
-   over to the next tick, so nothing is lost.
-4. **Settled** when there is no glide and less than a pixel left: the timer
-   stops and the state is cleared.
+While gliding, $\tau$ is doubled: the page already moves with the wheel, and
+catching up gently stops a fast spin from starting with a surge.
+
+**3. Whole pixels.** The sum is rounded to whole pixels; the fraction carries
+over to the next tick, so nothing is lost.
+
+**4. Settled** when there is no glide and less than a pixel left: the timer
+stops and the state is cleared.
 
 Using an exponential catch-up and integrating the glide exactly means the
 result doesn't depend on timer jitter: a late tick just moves a bit further.
